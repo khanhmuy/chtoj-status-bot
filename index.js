@@ -50,16 +50,16 @@ client.on('ready', () => {
                 .setDescription(`CHTOJ is DOWN!\n\n from <t:${timeStamp}:R>`)
                 .setColor('#f38ba8')
                 .setTimestamp();
-            sendChannel.send({embeds: [downEmbed], content: `<@&1284871505632821269>`});
+            sendChannel.send({embeds: [downEmbed], content: `<@&${process.env.PING_ROLE}>`});
             prevStt = false;
         } else if (status == true && prevStt == false) {
             const timeStamp = Math.floor(Date.now() / 1000);
             const restoredEmbed = new EmbedBuilder()
-                .setTitle('CHTOJ is RESTORED!')
+                .setTitle('CHTOJ is UP!')
                 .setDescription(`CHTOJ is UP!\n\n from <t:${timeStamp}:R>`)
                 .setColor('#a6e3a1')
                 .setTimestamp();
-            sendChannel.send({embeds: [restoredEmbed], content: `<@&1284871505632821269>`});
+            sendChannel.send({embeds: [restoredEmbed]});
             prevStt = true;
         }
     }
